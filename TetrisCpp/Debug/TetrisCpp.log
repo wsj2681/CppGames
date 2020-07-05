@@ -1,0 +1,12 @@
+﻿  main.cpp
+main.obj : error LNK2019: "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z)_main 함수에서 참조되는 확인할 수 없는 외부 기호
+main.obj : error LNK2019: "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ)_main 함수에서 참조되는 확인할 수 없는 외부 기호
+main.obj : error LNK2019: "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z)_main 함수에서 참조되는 확인할 수 없는 외부 기호
+main.obj : error LNK2019: "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z)_main 함수에서 참조되는 확인할 수 없는 외부 기호
+main.obj : error LNK2019: "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ)_main 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\\External\lib\sfml-graphics.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\\External\lib\sfml-audio.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\\External\lib\sfml-network.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\\External\lib\sfml-window.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\\External\lib\sfml-system.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\Debug\TetrisCpp.exe : fatal error LNK1120: 5개의 확인할 수 없는 외부 참조입니다.

@@ -1,0 +1,2 @@
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\x64\Debug\TetrisCpp.exe
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\x64\Debug\TetrisCpp.pdb
