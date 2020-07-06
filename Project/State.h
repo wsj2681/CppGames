@@ -1,7 +1,6 @@
 #ifndef STATE_H
 #define STATE_H
 
-
 #include "Entity.h"
 
 
@@ -13,6 +12,7 @@ public:
 
 private:
 
+
 protected:
 	stack<CState*>* states;
 	RenderWindow* window{ nullptr };
@@ -20,6 +20,11 @@ protected:
 	map<string, int> keybinds;
 	bool quit{ false };
 
+	Vector2i mousePosScreen;
+	Vector2i mousePosWindow;
+	Vector2f mousePosView;
+
+	//Resources
 	vector<Texture> vTextures;
 
 	virtual void InitKeybinds() = 0;
@@ -30,6 +35,7 @@ public:
 	virtual void CheckForQuit();
 
 	virtual void EndState() = 0;
+	virtual void UpdateMousePositions();
 	virtual void UpdateInput(const float& deltatime) = 0;
 	virtual void Update(const float& deltatime) = 0;
 	virtual void Render(RenderTarget* target = NULL) = 0;

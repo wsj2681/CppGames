@@ -21,3 +21,10 @@ void CState::CheckForQuit()
 		this->quit = true;
 	}
 }
+
+void CState::UpdateMousePositions()
+{
+	this->mousePosScreen = Mouse::getPosition();
+	this->mousePosWindow = Mouse::getPosition(*this->window);
+	this->mousePosView = this->window->mapPixelToCoords(Mouse::getPosition(*this->window));
+}

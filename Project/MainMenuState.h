@@ -1,8 +1,8 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
 
-#include "State.h"
 #include "GameState.h"
+#include "Button.h"
 
 class CMainMenuState : public CState
 {
@@ -12,8 +12,8 @@ public:
 
 private:
 	RectangleShape background;
-
-
+	Font Font;
+	void InitFonts();
 	void InitKeybinds();
 public:
 

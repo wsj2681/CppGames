@@ -12,6 +12,14 @@ CMainMenuState::~CMainMenuState()
 {
 }
 
+void CMainMenuState::InitFonts()
+{
+	if (this->Font.loadFromFile("Fonts/Dosis-Light.ttf")) {
+		throw("ERROR : MAINMENUSTATE - FONT NOT LOAD");
+	}
+
+}
+
 void CMainMenuState::InitKeybinds()
 {
 	ifstream in("Config/gamestate_keybinds.ini");
@@ -40,6 +48,7 @@ void CMainMenuState::UpdateInput(const float& deltatime)
 
 void CMainMenuState::Update(const float& deltatime)
 {
+	this->UpdateMousePositions();
 	this->UpdateInput(deltatime);
 
 }

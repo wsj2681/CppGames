@@ -47,6 +47,7 @@ void CGameState::UpdateInput(const float& deltatime)
 
 void CGameState::Update(const float& deltatime)
 {
+	this->UpdateMousePositions();
 	this->UpdateInput(deltatime);
 
 	this->player.Update(deltatime);
