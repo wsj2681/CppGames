@@ -1,2 +1,10 @@
 ﻿  main.cpp
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(38,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(50,33): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(72,65): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(126,40): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(137,41): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(137,33): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(145,47): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wsj26\Desktop\CppGames\TetrisCpp\main.cpp(145,34): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   TetrisCpp.vcxproj -> C:\Users\wsj26\Desktop\CppGames\TetrisCpp\x64\Debug\TetrisCpp.exe
