@@ -51,7 +51,6 @@ void CGame::InitWindow()
 void CGame::InitStates()
 {
 	this->states.push(new CMainMenuState(this->window, &this->supportedKeys, nullptr));
-	//this->states.push(new CGameState(this->window, &this->supportedKeys, nullptr));
 }
 
 void CGame::InitKeys()

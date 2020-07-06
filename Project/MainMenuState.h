@@ -12,15 +12,24 @@ public:
 
 private:
 	RectangleShape background;
-	Font Font;
+	Font font;
+
+	map<string, CButton*> buttons;
+
+
 	void InitFonts();
 	void InitKeybinds();
+	void InitButtons();
+	
+
 public:
 
 	void EndState();
 
 	void UpdateInput(const float& deltatime);
+	void UpdateButtons();
 	void Update(const float& deltatime);
+	void RenderButtons(RenderTarget* target = NULL);
 	void Render(RenderTarget* target = NULL);
 };
 
