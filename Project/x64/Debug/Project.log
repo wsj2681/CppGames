@@ -1,2 +1,5 @@
-﻿  GameState.cpp
+﻿  Game.cpp
+  MainMenuState.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
   Project.vcxproj -> C:\Users\wsj26\Desktop\CppGames\Project\x64\Debug\Project.exe
