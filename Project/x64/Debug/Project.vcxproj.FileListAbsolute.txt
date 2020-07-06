@@ -1,0 +1,2 @@
+C:\Users\wsj26\Desktop\CppGames\Project\x64\Debug\Project.exe
+C:\Users\wsj26\Desktop\CppGames\Project\x64\Debug\Project.pdb
