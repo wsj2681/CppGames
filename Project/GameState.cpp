@@ -1,7 +1,7 @@
 #include "GameState.h"
 
-CGameState::CGameState(RenderWindow* window, map<string, int>* supportedKeys)
-	: CState(window, supportedKeys)
+CGameState::CGameState(RenderWindow* window, map<string, int>* supportedKeys, stack<CState*>* states)
+	: CState(window, supportedKeys,states)
 {
 	this->InitKeybinds();
 }
@@ -12,10 +12,17 @@ CGameState::~CGameState()
 
 void CGameState::InitKeybinds()
 {
-	this->keybinds.emplace("MOVE_LEFT", this->supportedKeys->at("A"));
-	this->keybinds.emplace("MOVE_RIGHT", this->supportedKeys->at("D"));
-	this->keybinds.emplace("MOVE_UP", this->supportedKeys->at("W"));
-	this->keybinds.emplace("MOVE_DOWN", this->supportedKeys->at("S"));
+	ifstream in("Config/gamestate_keybinds.ini");
+
+	if (in.is_open()) {
+		string key{};
+		string key2{};
+		while (in >> key >> key2)
+		{
+			this->keybinds[key] = this->supportedKeys->at(key2);
+		}
+	}
+	in.close();
 }
 
 void CGameState::EndState()

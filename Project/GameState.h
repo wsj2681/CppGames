@@ -6,7 +6,7 @@
 class CGameState : public CState
 {
 public:
-	CGameState(RenderWindow* window, map<string, int>* supportedKeys);
+	CGameState(RenderWindow* window, map<string, int>* supportedKeys, stack<CState*>* states);
 	virtual ~CGameState();
 
 private:

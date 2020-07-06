@@ -17,7 +17,7 @@ const bool& CState::getQuit() const
 
 void CState::CheckForQuit()
 {
-	if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("CLOSE")))) {
 		this->quit = true;
 	}
 }

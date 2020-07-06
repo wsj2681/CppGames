@@ -50,16 +50,22 @@ void CGame::InitWindow()
 
 void CGame::InitStates()
 {
-	this->states.push(new CGameState(this->window, &this->supportedKeys));
+	this->states.push(new CGameState(this->window, &this->supportedKeys, nullptr));
 }
 
 void CGame::InitKeys()
 {
-	this->supportedKeys.emplace("Escape", Keyboard::Key::Escape);
-	this->supportedKeys.emplace("A", Keyboard::Key::A);
-	this->supportedKeys.emplace("D", Keyboard::Key::D);
-	this->supportedKeys.emplace("W", Keyboard::Key::W);
-	this->supportedKeys.emplace("S", Keyboard::Key::S);
+	ifstream in("Config/supportedkey.ini");
+
+	if (in.is_open()) {
+		string key{};
+		int key_val{ 0 };
+		while (in >> key >> key_val)
+		{
+			this->supportedKeys[key] = key_val;
+		}
+	}
+	in.close();
 }
 
 void CGame::EndApplication()
