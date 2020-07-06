@@ -1,6 +1,7 @@
 #include "State.h"
 
-CState::CState(RenderWindow* window):window(window)
+CState::CState(RenderWindow* window, map<string, int>* supportedKeys, stack<CState*>* states)
+	:window(window), supportedKeys(supportedKeys), states(states)
 {
 
 }

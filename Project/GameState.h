@@ -6,18 +6,20 @@
 class CGameState : public CState
 {
 public:
-	CGameState(RenderWindow* window);
+	CGameState(RenderWindow* window, map<string, int>* supportedKeys);
 	virtual ~CGameState();
 
 private:
+	CEntity player;
 
+	void InitKeybinds();
 public:
 
 	void EndState();
 
-	void UpdateKeybinds(const float& deltatime);
+	void UpdateInput(const float& deltatime);
 	void Update(const float& deltatime);
-	void Render(RenderTarget* target = nullptr);
+	void Render(RenderTarget* target = NULL);
 
 };
 

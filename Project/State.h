@@ -2,37 +2,27 @@
 #define STATE_H
 
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <stack>
-#include <map>
-
-using namespace std;
-
-#include "SFML/System.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
-
-using namespace sf;
+#include "Entity.h"
 
 
 class CState
 {
 public:
-	CState(RenderWindow* window);
+	CState(RenderWindow* window, map<string, int>* supportedKeys, stack<CState*>* states);
 	virtual ~CState();
 
 private:
+
+protected:
+	stack<CState*>* states;
 	RenderWindow* window{ nullptr };
-	vector<Texture> vTextures;
+	map<string, int>* supportedKeys;
+	map<string, int> keybinds;
 	bool quit{ false };
 
+	vector<Texture> vTextures;
+
+	virtual void InitKeybinds() = 0;
 public:
 
 	const bool& getQuit()const;
@@ -40,9 +30,9 @@ public:
 	virtual void CheckForQuit();
 
 	virtual void EndState() = 0;
-	virtual void UpdateKeybinds(const float& deltatime) = 0;
+	virtual void UpdateInput(const float& deltatime) = 0;
 	virtual void Update(const float& deltatime) = 0;
-	virtual void Render(RenderTarget* target = nullptr) = 0;
+	virtual void Render(RenderTarget* target = NULL) = 0;
 
 };
 

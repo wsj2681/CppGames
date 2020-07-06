@@ -20,9 +20,13 @@ private:
 
 	stack<CState*> states;
 
+	map<string, int> supportedKeys;
+
 	//Initalization
 	void InitWindow();
+	void InitKeys();
 	void InitStates();
+
 public:
 
 	//Reguler

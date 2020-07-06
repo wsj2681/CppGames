@@ -7,6 +7,7 @@
 //Constructor/Destructor
 CGame::CGame() {
 	this->InitWindow();
+	this->InitKeys();
 	this->InitStates();
 }
 
@@ -49,7 +50,16 @@ void CGame::InitWindow()
 
 void CGame::InitStates()
 {
-	this->states.push(new CGameState(this->window));
+	this->states.push(new CGameState(this->window, &this->supportedKeys));
+}
+
+void CGame::InitKeys()
+{
+	this->supportedKeys.emplace("Escape", Keyboard::Key::Escape);
+	this->supportedKeys.emplace("A", Keyboard::Key::A);
+	this->supportedKeys.emplace("D", Keyboard::Key::D);
+	this->supportedKeys.emplace("W", Keyboard::Key::W);
+	this->supportedKeys.emplace("S", Keyboard::Key::S);
 }
 
 void CGame::EndApplication()
