@@ -21,6 +21,13 @@ CGame::~CGame() {
 
 } 
 
+void CGame::InitVariables()
+{
+	this->window = NULL;
+	this->fullscreen = false;
+	this->deltatime = 0.f;
+}
+
 //Initializer Funtions
 void CGame::InitWindow()
 {
@@ -28,21 +35,34 @@ void CGame::InitWindow()
 
 	ifstream in("Config/window.ini");
 
-	VideoMode window_bounds(800, 600);
+	this->videoModes = VideoMode::getFullscreenModes();
+
 	string title = "None";
+	VideoMode window_bounds =VideoMode::getDesktopMode();
+	bool fullscreen = false;
 	unsigned framerate_limit = 120;
 	bool vertival_sync_enabled = false;
+	unsigned antialiasing_level = 0;
 
 	if (in.is_open()) {
 		getline(in, title);
 		in >> window_bounds.width >> window_bounds.height;
+		in >> fullscreen;
 		in >> framerate_limit;
 		in >> vertival_sync_enabled;
+		in >> antialiasing_level;
 	}
 
 	in.close();
 
-	this->window = new RenderWindow(window_bounds, title);
+	this->fullscreen = fullscreen;
+	this->windowSettings.antialiasingLevel = antialiasing_level;
+	
+	if (this->fullscreen)
+		this->window = new RenderWindow(window_bounds, title, Style::Fullscreen, windowSettings);
+	else
+		this->window = new RenderWindow(window_bounds, title, Style::Titlebar | Style::Close, windowSettings);
+	
 	this->window->setFramerateLimit(framerate_limit);
 	this->window->setVerticalSyncEnabled(vertival_sync_enabled);
 
@@ -50,7 +70,7 @@ void CGame::InitWindow()
 
 void CGame::InitStates()
 {
-	this->states.push(new CMainMenuState(this->window, &this->supportedKeys, nullptr));
+	this->states.push(new CMainMenuState(this->window, &this->supportedKeys, &this->states));
 }
 
 void CGame::InitKeys()
@@ -81,12 +101,11 @@ void CGame::UpdateDeltaTime()
 
 void CGame::UpdateSFMLEvents()
 {
-
-		while (this->window->pollEvent(this->sfevent))
-		{
-			if (this->sfevent.type == Event::Closed)
-				this->window->close();
-		}
+	while (this->window->pollEvent(this->sfevent))
+	{
+		if (this->sfevent.type == Event::Closed)
+			this->window->close();
+	}
 }
 
 void CGame::Update()

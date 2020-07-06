@@ -31,7 +31,7 @@ void CMainMenuState::InitFonts()
 
 void CMainMenuState::InitKeybinds()
 {
-	ifstream in("Config/gamestate_keybinds.ini");
+	ifstream in("Config/mainmenustate_keybinds.ini");
 
 	if (in.is_open()) {
 		string key{};
@@ -57,7 +57,7 @@ void CMainMenuState::InitButtons()
 
 void CMainMenuState::EndState()
 {
-	cout << "GameState is End" << endl;
+	cout << "MinMenuState is End" << endl;
 }
 
 void CMainMenuState::UpdateInput(const float& deltatime)
@@ -75,7 +75,7 @@ void CMainMenuState::UpdateButtons()
 
 	//New Game
 	if (this->buttons["GAME_STATE"]->isPressd()) {
-		//this->states.push(new CGameState(this->window, &this->supportedKeys, nullptr));
+		this->states->push(new CGameState(this->window, this->supportedKeys, this->states));
 	}
 	
 	//Quit Game

@@ -13,9 +13,11 @@ public:
 private:
 
 	//Variables
-	RenderWindow* window{ nullptr };
+	RenderWindow* window;
 	Event sfevent;
-
+	vector<VideoMode> videoModes;
+	ContextSettings windowSettings;
+	bool fullscreen{ false };
 	Clock deltaClock;
 	float deltatime{ 0.f };
 
@@ -24,6 +26,7 @@ private:
 	map<string, int> supportedKeys;
 
 	//Initalization
+	void InitVariables();
 	void InitWindow();
 	void InitKeys();
 	void InitStates();
