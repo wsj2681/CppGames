@@ -13,9 +13,9 @@ CGame::CGame() {
 CGame::~CGame() {
 	delete this->window;
 
-	while (this->states.empty()) {
+	while (!this->states.empty()) {
 		delete this->states.top();
-		this->states.pop();
+		this->states.pop(); 
 	}
 
 } 
@@ -52,6 +52,11 @@ void CGame::InitStates()
 	this->states.push(new CGameState(this->window));
 }
 
+void CGame::EndApplication()
+{
+	cout << "end app" << endl;
+}
+
 void CGame::UpdateDeltaTime()
 {
 	/*Update the deltatime variable with the time it takes to update and render one frame*/
@@ -72,11 +77,22 @@ void CGame::Update()
 {
 	this->UpdateSFMLEvents();
 
-	if (!this->states.empty()) {
+	if (!this->states.empty())
+	{
 		this->states.top()->Update(this->deltatime);
+
+		if (this->states.top()->getQuit())
+		{
+			this->states.top()->EndState();
+			delete this->states.top();
+			this->states.pop();
+		}
+	}
+	else {
+		this->EndApplication();
+		this->window->close();
 	}
 }
-
 void CGame::Render()
 {
 

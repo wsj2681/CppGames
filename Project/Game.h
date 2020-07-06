@@ -25,11 +25,18 @@ private:
 	void InitStates();
 public:
 
-	//Funtions
+	//Reguler
+	void EndApplication();
+
+	//Update
 	void UpdateDeltaTime();
 	void UpdateSFMLEvents();
 	void Update();
+
+	//Render
 	void Render();
+	
+	//Core
 	void Run();
 };
 

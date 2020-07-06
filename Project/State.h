@@ -31,10 +31,16 @@ public:
 private:
 	RenderWindow* window{ nullptr };
 	vector<Texture> vTextures;
-	
-public:
-	virtual void EndState() = 0;
+	bool quit{ false };
 
+public:
+
+	const bool& getQuit()const;
+
+	virtual void CheckForQuit();
+
+	virtual void EndState() = 0;
+	virtual void UpdateKeybinds(const float& deltatime) = 0;
 	virtual void Update(const float& deltatime) = 0;
 	virtual void Render(RenderTarget* target = nullptr) = 0;
 

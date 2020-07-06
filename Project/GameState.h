@@ -15,6 +15,7 @@ public:
 
 	void EndState();
 
+	void UpdateKeybinds(const float& deltatime);
 	void Update(const float& deltatime);
 	void Render(RenderTarget* target = nullptr);
 
