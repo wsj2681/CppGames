@@ -1,24 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <fstream>
-#include <string>
-
-using namespace std;
-
-#include "SFML/System.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
-
-using namespace sf;
-
-#include "State.h"
-
+#include "GameState.h"
 
 class CGame
 {
@@ -35,9 +18,11 @@ private:
 	Clock deltaClock;
 	float deltatime{ 0.f };
 
+	stack<CState*> states;
+
 	//Initalization
 	void InitWindow();
-
+	void InitStates();
 public:
 
 	//Funtions

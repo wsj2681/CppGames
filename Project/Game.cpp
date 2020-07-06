@@ -7,10 +7,17 @@
 //Constructor/Destructor
 CGame::CGame() {
 	this->InitWindow();
+	this->InitStates();
 }
 
 CGame::~CGame() {
 	delete this->window;
+
+	while (this->states.empty()) {
+		delete this->states.top();
+		this->states.pop();
+	}
+
 } 
 
 //Initializer Funtions
@@ -40,6 +47,11 @@ void CGame::InitWindow()
 
 }
 
+void CGame::InitStates()
+{
+	this->states.push(new CGameState(this->window));
+}
+
 void CGame::UpdateDeltaTime()
 {
 	/*Update the deltatime variable with the time it takes to update and render one frame*/
@@ -59,6 +71,10 @@ void CGame::UpdateSFMLEvents()
 void CGame::Update()
 {
 	this->UpdateSFMLEvents();
+
+	if (!this->states.empty()) {
+		this->states.top()->Update(this->deltatime);
+	}
 }
 
 void CGame::Render()
@@ -67,6 +83,9 @@ void CGame::Render()
 	this->window->clear();
 
 	//Render Items;
+	if (!this->states.empty()) {
+		this->states.top()->Render(this->window);
+	}
 
 	this->window->display();
 }
