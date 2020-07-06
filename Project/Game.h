@@ -4,6 +4,8 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -14,6 +16,9 @@ using namespace std;
 #include "SFML/Network.hpp"
 
 using namespace sf;
+
+#include "State.h"
+
 
 class CGame
 {

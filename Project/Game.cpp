@@ -17,7 +17,27 @@ CGame::~CGame() {
 void CGame::InitWindow()
 {
 	/*Create a SFML window using options from a window.ini file.*/
-	this->window = new RenderWindow(VideoMode(800, 600), "C++ SFML RPG");
+
+	ifstream in("Config/window.ini");
+
+	VideoMode window_bounds(800, 600);
+	string title = "None";
+	unsigned framerate_limit = 120;
+	bool vertival_sync_enabled = false;
+
+	if (in.is_open()) {
+		getline(in, title);
+		in >> window_bounds.width >> window_bounds.height;
+		in >> framerate_limit;
+		in >> vertival_sync_enabled;
+	}
+
+	in.close();
+
+	this->window = new RenderWindow(window_bounds, title);
+	this->window->setFramerateLimit(framerate_limit);
+	this->window->setVerticalSyncEnabled(vertival_sync_enabled);
+
 }
 
 void CGame::UpdateDeltaTime()
