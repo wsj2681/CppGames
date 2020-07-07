@@ -3,6 +3,8 @@
 CMainMenuState::CMainMenuState(RenderWindow* window, map<string, int>* supportedKeys, stack<CState*>* states)
 	: CState(window, supportedKeys, states)
 {
+	this->InitVariables();
+	this->InitBackground();
 	this->InitFonts();
 	this->InitKeybinds();
 	this->InitButtons();
@@ -19,6 +21,24 @@ CMainMenuState::~CMainMenuState()
 	for (; it != this->buttons.end(); ++it) {
 		delete it->second;
 	}
+}
+
+
+void CMainMenuState::InitVariables()
+{
+
+}
+
+void CMainMenuState::InitBackground()
+{
+	this->background.setSize(
+		Vector2f(
+		static_cast<float>(this->window->getSize().x),
+		static_cast<float>(this->window->getSize().y)));
+	if (!this->backgroundTexture.loadFromFile("Images/mainmenu_background.png")) {
+		throw("ERROR : MAIN_MENU_STATE - FILE NOT LOAD");
+	}
+	this->background.setTexture(&this->backgroundTexture);
 }
 
 void CMainMenuState::InitFonts()
@@ -46,13 +66,17 @@ void CMainMenuState::InitKeybinds()
 
 void CMainMenuState::InitButtons()
 {
-	this->buttons["GAME_STATE"] = new CButton(100, 100, 150, 50,
+	this->buttons["GAME_STATE"] = new CButton(280, 328, 250, 50,
 		&this->font, "New Game",
-		Color::White, Color::Blue, Color::Yellow);
+		Color::Magenta, Color::Blue, Color::Yellow);
 
-	this->buttons["EXIT_STATE"] = new CButton(100, 300, 150, 50,
+	this->buttons["SETTINGS"] = new CButton(280, 447, 250, 50,
+		&this->font, "Settings",
+		Color::Magenta, Color::Blue, Color::Yellow);
+
+	this->buttons["EXIT_STATE"] = new CButton(280, 647, 250, 50,
 		&this->font, "Quit",
-		Color::White, Color::Blue, Color::Yellow);
+		Color::Magenta, Color::Blue, Color::Yellow);
 }
 
 void CMainMenuState::EndState()
@@ -108,4 +132,15 @@ void CMainMenuState::Render(RenderTarget* target)
 
 	target->draw(this->background);
 	this->RenderButtons(target);
+
+	//
+	Text mouseText;
+	mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
+	mouseText.setFont(this->font);
+	mouseText.setCharacterSize(12);
+	stringstream ss;
+	ss << this->mousePosView.x << " " << this->mousePosView.y;
+	mouseText.setString(ss.str());
+
+	target->draw(mouseText);
 }

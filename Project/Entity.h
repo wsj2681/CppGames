@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <stack>
 #include <map>

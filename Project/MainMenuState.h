@@ -11,12 +11,14 @@ public:
 	virtual ~CMainMenuState();
 
 private:
+	Texture backgroundTexture;
 	RectangleShape background;
 	Font font;
 
 	map<string, CButton*> buttons;
 
-
+	void InitVariables();
+	void InitBackground();
 	void InitFonts();
 	void InitKeybinds();
 	void InitButtons();
