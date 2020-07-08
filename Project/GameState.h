@@ -15,8 +15,6 @@ private:
 	void InitKeybinds();
 public:
 
-	void EndState();
-
 	void UpdateInput(const float& deltatime);
 	void Update(const float& deltatime);
 	void Render(RenderTarget* target = NULL);

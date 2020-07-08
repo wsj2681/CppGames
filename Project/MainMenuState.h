@@ -26,7 +26,7 @@ private:
 
 public:
 
-	void EndState();
+	
 
 	void UpdateInput(const float& deltatime);
 	void UpdateButtons();

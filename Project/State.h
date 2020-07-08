@@ -32,9 +32,9 @@ public:
 
 	const bool& getQuit()const;
 
-	virtual void CheckForQuit();
+	
 
-	virtual void EndState() = 0;
+	void EndState();
 	virtual void UpdateMousePositions();
 	virtual void UpdateInput(const float& deltatime) = 0;
 	virtual void Update(const float& deltatime) = 0;

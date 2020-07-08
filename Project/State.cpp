@@ -15,11 +15,10 @@ const bool& CState::getQuit() const
 	return this->quit;
 }
 
-void CState::CheckForQuit()
+
+void CState::EndState()
 {
-	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("CLOSE")))) {
-		this->quit = true;
-	}
+	this->quit = true;
 }
 
 void CState::UpdateMousePositions()

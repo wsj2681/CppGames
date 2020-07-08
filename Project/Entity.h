@@ -29,12 +29,18 @@ public:
 	virtual ~CEntity();
 
 private:
+	
 
 protected:
-	RectangleShape shape;
+	Texture* texture{ nullptr };
+	Sprite* sprite{ nullptr };
+
 	float moveSpeed{ 100.f };
 
 public:
+
+	//Component Functions
+	void CreateSprite(Texture* texture);
 
 	virtual void Move(const float& deltatime, const float x, const float y);
 

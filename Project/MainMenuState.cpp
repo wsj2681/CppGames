@@ -79,14 +79,8 @@ void CMainMenuState::InitButtons()
 		Color::Magenta, Color::Blue, Color::Yellow);
 }
 
-void CMainMenuState::EndState()
-{
-	cout << "MinMenuState is End" << endl;
-}
-
 void CMainMenuState::UpdateInput(const float& deltatime)
 {
-	this->CheckForQuit();
 
 }
 
@@ -104,7 +98,7 @@ void CMainMenuState::UpdateButtons()
 	
 	//Quit Game
 	if (this->buttons["EXIT_STATE"]->isPressd()) {
-		this->quit = true;
+		this->EndState();
 	}
 
 }

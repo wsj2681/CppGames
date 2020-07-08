@@ -25,14 +25,10 @@ void CGameState::InitKeybinds()
 	in.close();
 }
 
-void CGameState::EndState()
-{
-	cout << "GameState is End" << endl;
-}
 
 void CGameState::UpdateInput(const float& deltatime)
 {
-	this->CheckForQuit();
+	
 
 	//Update Player input
 	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
@@ -43,6 +39,9 @@ void CGameState::UpdateInput(const float& deltatime)
 		this->player.Move(deltatime, 0.f, -1.f);
 	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
 		this->player.Move(deltatime, 0.f, 1.f);
+	
+	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("CLOSE"))))
+		this->EndState();
 }
 
 void CGameState::Update(const float& deltatime)
