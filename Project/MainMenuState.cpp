@@ -131,7 +131,7 @@ void CMainMenuState::Render(RenderTarget* target)
 	Text mouseText;
 	mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
 	mouseText.setFont(this->font);
-	mouseText.setCharacterSize(12);
+	mouseText.setCharacterSize(20);
 	stringstream ss;
 	ss << this->mousePosView.x << " " << this->mousePosView.y;
 	mouseText.setString(ss.str());
